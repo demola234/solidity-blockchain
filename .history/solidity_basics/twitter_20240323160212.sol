@@ -29,11 +29,7 @@ contract Twitter {
         tweets[owner][id].likes++;
     }
 
-    function unlikeTweet(uint256 id, address owner) external {
-        require(tweets[owner][id].id == id, "Tweet does not exist");
-        require(tweets[owner][id].likes > 0, "Tweet has no likes");
-        tweets[owner][id].likes--;
-    }
+    function unlikeTweet
 
     function getTweet(
         address owner,
