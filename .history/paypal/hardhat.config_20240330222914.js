@@ -1,11 +1,12 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("@nomicfoundation/hardhat-ethers")
+require("")
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: "0.8.24",
-  defaultNetwork: "mumbai",
   networks: {
-    mubai: {
+    mumbai: {
       url: process.env.POLYGON_MUMBAI,
       accounts: [process.env.PRIVATE_KEY],
     },
