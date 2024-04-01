@@ -40,19 +40,15 @@ describe("Paypal", function () {
       await payPal.createRequest(amount, message, owner.address);
     });
 
-    // it("Should pay request correctly", async function () {
-    //   const amount = 100;
-    //   const message = "TestPayRequest";
-    //   const { payPal, owner, otherAccount } = await loadFixture(
-    //     deployOneYearLockFixture
-    //   );
-    //   await payPal
-    //     .connect(otherAccount)
-    //     .createRequest(amount, message, owner.address);
-    //   await expect(() =>
-    //     payPal.connect(otherAccount).payRequest(0, { value: amount })
-    //   ).to.changeEtherBalance(owner, amount);
-    // });
+    it('Should pay request correctly', async function () {
+      const amount = 100;
+      const message = 'TestPayRequest';
+      const { payPal, owner, otherAccount } = await loadFixture(
+        deployOneYearLockFixture
+      );
+      await payPal.connect(otherAccount).createRequest(amount, message, owner.address);
+      await expect(() => payPal.connect(addr1).payRequest(0, { value: amount })).to.changeEtherBalance(owner, amount);
+    });
 
     it("Should get my requests correctly", async function () {
       const amount = 100;

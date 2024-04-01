@@ -34,6 +34,7 @@ describe("Paypal", function () {
     it("Should create request correctly", async function () {
       const amount = 100;
       const message = "TestRequest";
+      const address = "0x85FD4d0D9aEE19B1ffb173b59bc47436eDb9C8D2";
       const { payPal, owner, otherAccount } = await loadFixture(
         deployOneYearLockFixture
       );
@@ -43,14 +44,13 @@ describe("Paypal", function () {
     // it("Should pay request correctly", async function () {
     //   const amount = 100;
     //   const message = "TestPayRequest";
+    //   const address = "0x85FD4d0D9aEE19B1ffb173b59bc47436eDb9C8D2";
     //   const { payPal, owner, otherAccount } = await loadFixture(
     //     deployOneYearLockFixture
     //   );
-    //   await payPal
-    //     .connect(otherAccount)
-    //     .createRequest(amount, message, owner.address);
+    //   await payPal.createRequest(amount, message, owner.address);
     //   await expect(() =>
-    //     payPal.connect(otherAccount).payRequest(0, { value: amount })
+    //     payPal.payRequest(0, { value: amount })
     //   ).to.changeEtherBalance(owner, amount);
     // });
 
