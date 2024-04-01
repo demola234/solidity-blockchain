@@ -69,6 +69,7 @@ contract Paypal {
 
         payable(payableRequest.requester).transfer(msg.value);
 
+
         addHistory(
             msg.sender,
             payableRequest.requester,

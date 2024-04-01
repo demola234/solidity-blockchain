@@ -69,6 +69,7 @@ contract Paypal {
 
         payable(payableRequest.requester).transfer(msg.value);
 
+
         addHistory(
             msg.sender,
             payableRequest.requester,
@@ -147,7 +148,5 @@ contract Paypal {
         return names[_user];
     }
 
-    receive() external payable {
-        createRequest(msg.value, "Misktakely sent", msg.sender);
-    }
+    receive() external payable {}
 }
